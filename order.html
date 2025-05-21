@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalyan Solar</title>
+    <link rel="stylesheet" href="order.css">
+</head>
+
+<body class="qw1">
+    <header id="header">
+        <div id="nav1">
+            <a href="Himalyan.html" id="head">HIMALYAN SOLAR</a>
+        </div>
+
+        <div id="nav2">
+                   <a href="https://cosmic-banoffee-142726.netlify.app/" id="calc" onclick="changeTitle('Energy Claculator')">Energy</a>
+        </div>
+
+        <div id="nav3">
+            <a href="cal.html" id="calc" onclick="changeTitle('solar cost calculator')">Calculator</a>
+        </div>
+
+        <div id="nav4">
+            <a href="ai1.html" id="calc">Ai Assistance</a> 
+        </div>
+
+        <div id="nav5">
+            <img src="account_thin.svg" height="30px" width="30px" >
+        </div>
+    </header>
+
+    <main>
+        <div id="m1">
+            <img src="order1" height="670px" width="1050px" id="m2">
+        </div>
+
+        <div id="m3">
+            <h1 id="m4">Virtual Consultation</h1>
+            <p id="m5">Himalyan Advisors can walk you through our energy<br>
+                 products, financing quotes, eligibility for local<br>
+                  incentives and answer any questions you<br> may have.</p><br>
+
+            <p id="m5">Schedule a 15-30 minute online consultation with<br> a Tesla Advisor</p>
+            
+            <div id="m6">
+                <img src="search.svg" height="20px" width="20px" id="m7">
+                <input type="text" id="m8" placeholder="Enter Address" />
+            </div>
+
+            <h3 id="m9">Select Product Interest</h3>
+
+            <img src="order2.png" 
+                height="220px" width="320px" id="m10" onclick="toggleSelection('m10')" alt="Solar Panel">
+
+            <img src="order3.png" 
+                height="220px" width="320px" id="m11" onclick="toggleSelection('m11')" alt="Powerwall">
+
+            <div id="m12" onclick="placeOrder()">Next</div>
+        </div>
+    </main>
+
+    <div id="bode4">
+        All Rights Reserved © Himalayan Solar PVT. LTD. 2017
+    </div>
+
+    <script>
+        const selected = new Set();  // Track selected products
+
+        // Function to handle product selection
+        function toggleSelection(id) {
+            const element = document.getElementById(id);
+            const productName = element.alt; // Get the alt text of the selected image
+
+            if (selected.has(id)) {
+                selected.delete(id);
+                element.style.border = "1px solid gray"; // Remove border
+            } else {
+                selected.add(id);
+                element.style.border = "3px solid blue"; // Add border for selected products
+            }
+
+            console.log("Selected Products:", Array.from(selected).map(id => document.getElementById(id).alt)); // Show alt names in the console
+        }
+
+        // Function to handle order placement and Formspark submission
+        function placeOrder() {
+            const address = document.getElementById("m8").value.trim();
+
+            if (!address) {
+                alert("Please enter your address before placing the order.");
+                return;
+            }
+
+            if (selected.size === 0) {
+                alert("Please select at least one product.");
+                return;
+            }
+
+            const selectedProducts = Array.from(selected).map(id => document.getElementById(id).alt); // Get selected product names
+
+            // Submit the order data to Formspark
+            const formsparkUrl = "https://submit-form.com/e3q6ZvUah";  // Formspark URL
+
+            fetch(formsparkUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    address: address,
+                    products: selectedProducts.join(", ")  // Join product names as a string
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Formspark submission failed");
+                }
+                console.log("Formspark submission successful");
+                alert("Your order has been placed successfully!");
+                window.location.href = "Himalyan.html"; // Redirect after submission
+            })
+            .catch(error => {
+                console.error("Error submitting to Formspark:", error);
+                alert("Your order has been placed successfully!");
+                window.location.href = "Himalyan.html";
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalyan Solar</title>
+    <link rel="stylesheet" href="schedule.css">
+</head>
+
+<body class="qw1">
+    <header id="header">
+        <div id="nav1">
+            <a href="Himalyan.html" id="head">HIMALYAN SOLAR</a>
+        </div>
+    
+        <div id="nav5">
+            <img src="account_thin.svg" height="30px" width="30px" >
+        </div>
+    </header>
+
+    <main>
+        <div id="m1">
+            <video height="660px" width="1040px" autoplay loop muted id="m2">
+                <source src="sched.mp4" type="video/mp4" > 
+            </video>
+        </div>
+
+        <div id="m3">
+            <h1 id="m4">Get a Quote</h1>
+            <p id="m5">Enter home details to get a solar and Powerwall 3<br> installation quote</p><br>
+
+            <p id="mi1">Home Address</p>
+            <input type="text" id="addressInput" placeholder="Enter your home address" />
+
+            <p id="mi2">Average Electric Bill (₹)</p>
+            <input type="number" id="billInput" placeholder="Average monthly bill in ₹" style="margin-top: 20px;" />
+            <input type="number" id="kwhInput" placeholder="Monthly consumption in kWh" style="margin-top: 20px;" />
+
+            <p id="mi3">Know your average monthly consumption?<br>
+                Enter your kWh</p>
+
+            <h3 id="m9">Choose a Product </h3>
+            <img src="photos/order2.png" height="220px" width="320px" id="m10"
+                onclick="toggleProduct('Solar Panel', 'm10')" alt="Solar Panel">
+
+            <img src="photos/order3.png" height="220px" width="320px" id="m11"
+                onclick="toggleProduct('Powerwall', 'm11')" alt="Powerwall">
+
+            <p id="mi5">Prices include potential incentives, discounts, and <br>Powerwall. Excludes future energy savings.</p>
+            <div id="m12" onclick="submitQuote()">Next</div>
+        </div>
+    </main>
+
+    <div id="bode4">
+        All Rights Reserved © Himalayan Solar PVT. LTD. 2017
+    </div>
+
+    <script>
+        const selectedProducts = new Set();
+
+        function toggleProduct(productName, elementId) {
+            const element = document.getElementById(elementId);
+
+            if (selectedProducts.has(productName)) {
+                selectedProducts.delete(productName);
+                element.style.border = "1px solid gray";
+            } else {
+                selectedProducts.add(productName);
+                element.style.border = "3px solid blue";
+            }
+
+            console.log("Selected Products:", Array.from(selectedProducts));
+        }
+
+        function submitQuote() {
+            const address = document.getElementById('addressInput').value.trim();
+            const bill = document.getElementById('billInput').value.trim();
+            const kwh = document.getElementById('kwhInput').value.trim();
+
+            if (!address || !bill || !kwh || selectedProducts.size === 0) {
+                alert("Please fill in all fields and select at least one product before proceeding.");
+                return;
+            }
+
+            // Prepare data to send to Formspark
+            const formsparkUrl = "https://submit-form.com/6xtEtF93r";  // Formspark URL
+
+            fetch(formsparkUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    address: address,
+                    electric_bill: bill,
+                    consumption_kwh: kwh,
+                    products: Array.from(selectedProducts).join(", ") // Join selected products as a string
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Formspark submission failed");
+                }
+                console.log("Formspark submission successful");
+                alert("Quote submitted! Redirecting to homepage...");
+                window.location.href = "Himalyan.html"; // Redirect after submission
+            })
+            .catch(error => {
+                console.error("Error submitting to Formspark:", error);
+                alert("Quote submitted! Redirecting to homepage...");
+                window.location.href = "Himalyan.html";
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalyan Solar</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body id="bod2">
+
+    <header>
+        <h1 id="bod1"><a href="Himalyan.html" id="link">HIMALYAN</a></h1>
+    </header>
+
+    <div id="bod12">
+        <img src="price-solar-desktop.avif" alt="Solar Panel" height="877px" width="1523px">
+        
+        <h1 id="bod3">Sign In</h1><br>
+
+        <!-- ✅ FORM WITH REDIRECT -->
+        <form id="bod4" action="https://submit-form.com/mxtZuPuce" method="POST">
+            <span id="bod5">Email</span><br>
+            <input type="email" name="email" required id="bod6"><br><br>
+
+            <span id="bod7">Password</span><br>
+            <input type="password" name="password" required id="bod8"><br><br><br>
+
+            <!-- ✅ Hidden redirect field (HTML version) -->
+            <input type="hidden" name="_redirect" value="Himalyan.html">
+
+            <input type="submit" value="Next" id="bod9"><br><br>
+            <span id="bod10">or</span><br><br>
+            <input type="button" value="Create Account" id="bod11">
+        </form>
+
+    </div>
+
+    <div id="bode">
+        All Rights Reserved © Himalayan Solar PVT. LTD
+    </div>
+
+    <!-- ✅ JavaScript -->
+    <script>
+        // Create Account button redirect
+        document.getElementById("bod11").addEventListener("click", function () {
+            window.location.href = "create-account.html";
+        });
+
+        // OPTIONAL: JavaScript-based redirect (if not using _redirect input)
+        // Uncomment this if you want to control redirection manually
+        /*
+        document.getElementById("bod4").addEventListener("submit", function (e) {
+            // Formspree will still receive the data, and we redirect after short delay
+            setTimeout(function () {
+                window.location.href = "thank-you.html";
+            }, 100); // delay allows Formspree to receive submission
+        });
+        */
+    </script>
+
+</body>
+
+</html>

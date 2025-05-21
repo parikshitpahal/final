@@ -1,0 +1,67 @@
+body {
+  background-image: url('https://digitalassets.tesla.com/image/upload/q_auto/f_auto/w_1920/prod/fulfillment/energy/Order/VirtualConsultations/VC_d_v2');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;  /* Adds gap between calculator and result */
+}
+
+.calculator, .result {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.calculator h1, .result h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #222;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #ff6700;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e65f00;
+}
+
+.result {
+  display: none;  /* Initially hidden */
+  opacity: 0;  /* Initially invisible */
+}
+
+.result.show {
+  display: block;
+  opacity: 1;  /* Show with fade-in effect */
+}

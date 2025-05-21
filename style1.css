@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);*/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('open-sans/OpenSans-Regular.html');
+}
+
+body
+{
+	margin:0;
+	padding:0;
+    font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+	
+}
+
+/*input[type=text] {
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+	
+}*/
+
+
+#heading_calc 
+{
+        display: inherit;
+        margin: 0;
+        padding: 10px 0 10px;
+        text-align: center;
+        text-shadow: 3px 3px 4px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 3em;
+        font-weight: 700;
+        line-height: normal;
+		color:#00cc33;
+        /*color:#606f2e;*/
+}
+
+#state_text
+{
+	/*display: inherit;*/
+	margin: 0;
+	padding: 0 0 40px;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: bold;
+	letter-spacing: 3px;
+	color:#000;
+}
+	
+table {
+    border-collapse: collapse;
+	font-size:14px;
+	font-family: 'Open Sans', sans-serif;
+	/*border-collapse: separate;*/
+	text-align:center;
+	width:100%;
+
+}
+
+.tbl
+{
+	border-collapse: collapse;
+	border:1px solid #a4a4a4;
+}
+
+td
+{
+	height: 15px;
+	padding:3px;
+}
+
+/*table, td, th {
+    border: 1px solid #BDBDBD;
+}
+*/
+
+th {
+background-color: #D0D0D0;
+    /*color: white;*/
+}
+
+.column_1
+{
+	/*background: #c9e726;*/
+	background: #e8f5a2;
+	/*background: #167f92;*/
+	text-align:left;
+	vertical-align:top;
+}
+
+.column_11
+{
+	background: #a7d8f6;
+	/*background: #167f92;*/
+	text-align:left;
+	vertical-align:top;
+}
+
+
+.column_2
+{
+	/*background: #f5f5f5;*/
+	background: #e4e4e4;
+	/*background: #eaf3f3;*/
+	text-align:left;
+	vertical-align:top;
+}
+
+.left_div_column_lbl
+{
+	text-align:right;
+	padding:5px;
+}
+
+.left_div_column_slider_td
+{
+	text-align:left;
+	padding:5px;
+}
+
+.right_div_column_2
+{
+	/*background: #f5f5f5;*/
+	background: #e4e4e4;
+	/*background: #eaf3f3;*/
+	text-align:left;
+	vertical-align:top;
+	width:150px;
+}
+
+
+.column_1_slider_lbl
+{
+	text-align:left;
+	vertical-align:top;
+}
+
+.assume
+{
+	font-size:12px;
+	color:#999;
+}
+
+/*=====================slider ============== */
+.irs-grid-text {
+	color: #0055cc;
+	font-size: 11px;
+}
+
+.irs-grid-pol{
+	background: #0055cc;
+}
+
+hr{
+	margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid green;
+}
+
+.custom_label{
+	padding: .2em .6em .3em;
+}
+
+.custom_disable{
+ cursor: not-allowed;	
+}
